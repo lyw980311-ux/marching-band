@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marching Band</title>
+<meta name="description" content="Marching Band, a lens for Snap Spectacles: walk through a road of glowing arches to play a song together. RCA × Snap exhibition, RCA Battersea.">
+<meta property="og:title" content="Marching Band">
+<meta property="og:description" content="A song you write together, step by step. A lens for Snap Spectacles.">
+<meta property="og:image" content="https://lyw980311-ux.github.io/marching-band/img/poster.jpg">
+<meta property="og:url" content="https://lyw980311-ux.github.io/marching-band/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0c'/%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M4 29a12 12 0 0 1 24 0' stroke='%23ff4fe3' stroke-width='3'/%3E%3Cpath d='M9 29a7 7 0 0 1 14 0' stroke='%233fe9ff' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Jost:ital,wght@0,400;0,500;1,500&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); background: #0b0b0c; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<style>
+  /* One visual world on purpose: the film's black frame, white Futura-like type, and the lens's arch colours. */
+  :root {
+    color-scheme: dark;
+    --ink: #0b0b0c;
+    --panel: #151517;
+    --paper: #f4f2ec;
+    --soft: rgba(244, 242, 236, 0.70);
+    --dim: rgba(244, 242, 236, 0.46);
+    --rule: rgba(244, 242, 236, 0.14);
+    --pill: rgba(10, 10, 12, 0.66);
+    --magenta: #ff4fe3;
+    --lime: #d9ff45;
+    --cyan: #3fe9ff;
+    --coral: #ff5a4a;
+    --display: "Jost", "Futura", "Century Gothic", "Avenir Next", sans-serif;
+    --label: "Barlow Condensed", "Futura Condensed", "Arial Narrow", sans-serif;
+  }
+  body {
+    background: var(--ink); color: var(--paper);
+    font-family: var(--display); font-size: 17px; line-height: 1.6;
+    padding-inline: 20px; padding-block: 0 56px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
+  a { color: var(--paper); text-decoration-color: var(--magenta); text-underline-offset: 3px; }
+  a:focus-visible, video:focus-visible, .shots:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+  .label {
+    font-family: var(--label); font-weight: 500; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim);
+  }
+  h2 { font-family: var(--label); font-weight: 600; font-size: 14px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--soft); margin: 0 0 18px; }
+  p { margin: 0; }
+
+  /* ── opening ── */
+  .top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 20px; }
+  .open { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; margin-top: -24px; }
+  .arches { width: min(300px, 78%); height: auto; display: block; }
+  h1 {
+    margin: -6px 0 0; font-family: var(--display); font-style: italic; font-weight: 500;
+    font-size: clamp(50px, 14vw, 96px); line-height: 0.95; letter-spacing: -0.01em; text-wrap: balance;
+  }
+  .tag { font-size: clamp(18px, 4.6vw, 22px); color: var(--soft); text-wrap: balance; }
+
+  /* ── film ── */
+  .film { display: flex; flex-direction: column; gap: 10px; }
+  .film video { width: 100%; aspect-ratio: 16 / 9; max-width: 100%; display: block; background: #000; }
+  .film .meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  /* ── the film's opening line, set the way the film sets its subtitles ── */
+  .still { position: relative; margin-inline: -20px; }
+  .still img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .still .sub { position: absolute; left: 12px; right: 12px; bottom: 7%; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+  .sub span { background: var(--pill); color: #fff; font-size: clamp(13px, 3.4vw, 17px); line-height: 1.3; padding: 3px 10px 4px; border-radius: 5px; }
+
+  .about { display: flex; flex-direction: column; gap: 16px; font-size: 19px; line-height: 1.55; max-width: 62ch; }
+  .about p + p { color: var(--soft); font-size: 17px; }
+
+  /* ── how it plays: a real sequence, so numbered ── */
+  .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .steps li { display: grid; grid-template-columns: 48px 1fr; gap: 4px 12px; padding-block: 18px; border-top: 1px solid var(--rule); }
+  .steps li:last-child { border-bottom: 1px solid var(--rule); }
+  .steps .n { grid-row: span 2; font-family: var(--display); font-style: italic; font-weight: 500; font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .steps b { font-weight: 500; font-size: 19px; }
+  .steps p { color: var(--soft); font-size: 16px; }
+  .steps li:nth-child(1) .n { color: var(--magenta); }
+  .steps li:nth-child(2) .n { color: var(--lime); }
+  .steps li:nth-child(3) .n { color: var(--cyan); }
+  .steps li:nth-child(4) .n { color: var(--coral); }
+  .steps li:nth-child(5) .n { color: var(--paper); }
+
+  /* ── the song library ── */
+  .songs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .songs div { background: var(--ink); padding: 14px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .songs b { font-weight: 500; font-size: 16px; line-height: 1.25; }
+  .songs span { font-family: var(--label); font-size: 15px; letter-spacing: 0.08em; color: var(--dim); font-variant-numeric: tabular-nums; }
+  .songs-note { margin-top: 12px; color: var(--soft); font-size: 15px; }
+
+  /* ── photos: swipe on a phone, grid on a wide screen ── */
+  .shots { display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -20px; padding-inline: 20px; padding-bottom: 6px; scrollbar-width: thin; }
+  .shots figure { margin: 0; scroll-snap-align: center; display: flex; flex-direction: column; gap: 8px; }
+  .shots img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--panel); }
+  .shots figcaption { font-size: 14px; line-height: 1.4; color: var(--soft); }
+  .swipe { margin-top: 10px; }
+  @media (min-width: 760px) {
+    .shots { grid-auto-flow: row; grid-template-columns: 1fr 1fr; grid-auto-columns: auto; overflow: visible; margin-inline: 0; padding-inline: 0; gap: 24px 16px; }
+    .swipe { display: none; }
+    .still { margin-inline: 0; }
+  }
+
+  .together { display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
+  .together p { color: var(--soft); }
+
+  /* ── billing block, the small print at the foot of a film poster ── */
+  .billing { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 8px; font-family: var(--label); text-transform: uppercase; letter-spacing: 0.14em; color: var(--dim); font-size: 14px; line-height: 1.5; }
+  .billing .rule { width: 56px; height: 1px; background: var(--dim); margin-bottom: 10px; }
+  .billing b { font-weight: 600; color: var(--paper); font-size: 17px; letter-spacing: 0.18em; }
+  .billing .when { max-width: 36ch; text-wrap: balance; }
+
+  @media (prefers-reduced-motion: reduce) { .shots { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <span class="label">RCA × Snap</span>
+    <span class="label">A lens for Snap Spectacles</span>
+  </header>
+
+  <section class="open" aria-labelledby="t">
+    <!-- the lens's arches: four nested gates in the lens's own colours -->
+    <svg class="arches" viewBox="0 0 300 150" aria-hidden="true">
+      <g fill="none" stroke-linecap="round">
+        <path d="M 22 146 A 128 128 0 0 1 278 146" stroke="#ff4fe3" stroke-width="7"/>
+        <path d="M 52 146 A 98 98 0 0 1 248 146" stroke="#d9ff45" stroke-width="6"/>
+        <path d="M 80 146 A 70 70 0 0 1 220 146" stroke="#3fe9ff" stroke-width="5"/>
+        <path d="M 106 146 A 44 44 0 0 1 194 146" stroke="#ff5a4a" stroke-width="4"/>
+      </g>
+    </svg>
+    <h1 id="t">Marching Band</h1>
+    <p class="tag">A song you write together, step by step.</p>
+  </section>
+
+  <section class="film" aria-label="The film">
+    <video controls playsinline preload="metadata" poster="img/poster.jpg">
+      <source src="film.mp4" type="video/mp4">
+      Your browser can't play this video. <a href="film.mp4">Open the film</a>.
+    </video>
+    <div class="meta">
+      <span class="label">The film · 2:04</span>
+      <span class="label">Film by Hoon</span>
+    </div>
+  </section>
+
+  <figure class="still" aria-label="Still from the film">
+    <img src="img/door.jpg" alt="Two players framed in a concrete doorway, looking out at the path">
+    <figcaption class="sub">
+      <span>What if making music wasn’t something you did sitting still,</span>
+      <span>but something you walked through together?</span>
+    </figcaption>
+  </figure>
+
+  <section class="about" aria-label="About">
+    <p>Marching Band is a lens for Snap Spectacles. Put it on and a road of glowing arches lays out across the room. Each arch holds the next phrase of a song. Walk through them and the song keeps playing. Stop, and it fades.</p>
+    <p>There is no screen to stare at and no buttons to press. Your footsteps keep the beat, your claps are the drums, and opening your hands wide makes the band swell. Up to three people can share one road and one song.</p>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How it plays</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><b>Step into the arch</b><p>A single arch waits about three metres ahead. Walk into it and a four-beat count-in lays out the road.</p></li>
+      <li><span class="n">2</span><b>Walk through the arches</b><p>Each arch plays the next phrase. They stand three metres apart. Stop walking and the song fades within seven seconds.</p></li>
+      <li><span class="n">3</span><b>Clap on the beat</b><p>Every clap is a drum hit. Land it on the beat and it cracks louder.</p></li>
+      <li><span class="n">4</span><b>Open your hands</b><p>Spread your hands wide as you walk and a chord swells under the melody.</p></li>
+      <li><span class="n">5</span><b>Hear it back</b><p>When the song ends, the arches gather into a finale and the lens plays back the tune you just carried. Then the next song begins.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="songs">
+    <h2 id="songs">On the road</h2>
+    <div class="songs">
+      <div><b>Ode to Joy</b><span>100 bpm</span></div>
+      <div><b>Arirang</b><span>72 bpm</span></div>
+      <div><b>Twinkle Twinkle</b><span>90 bpm</span></div>
+    </div>
+    <p class="songs-note">The beat follows your stride, from 0.8× to 1.3× the song’s tempo, so the kick drum lands on your feet.</p>
+  </section>
+
+  <section aria-labelledby="photos">
+    <h2 id="photos">Photos</h2>
+    <div class="shots" tabindex="0" aria-label="Photos, scroll sideways">
+      <figure><img src="img/lens.jpg" alt="View through the lens: coloured arches and music notes above a garden path" loading="lazy"><figcaption>Through the lens: arches and notes along the path.</figcaption></figure>
+      <figure><img src="img/path.jpg" alt="A magenta arch spanning a paved path between buildings" loading="lazy"><figcaption>Each arch holds the next part of the song.</figcaption></figure>
+      <figure><img src="img/hands.jpg" alt="Two players in Spectacles raising their hands" loading="lazy"><figcaption>The whole interaction happens through movement.</figcaption></figure>
+      <figure><img src="img/together.jpg" alt="Two players on a concrete terrace, one reaching up, one crouching" loading="lazy"><figcaption>Two players, one road, one song.</figcaption></figure>
+      <figure><img src="img/clap.jpg" alt="A player in silhouette clapping with arms outstretched" loading="lazy"><figcaption>Clap on the beat. Your hands are the band’s drums.</figcaption></figure>
+      <figure><img src="img/pair.jpg" alt="Two players standing side by side wearing Snap Spectacles" loading="lazy"><figcaption>Played in Snap Spectacles, in real space.</figcaption></figure>
+      <figure><img src="img/spectacles.jpg" alt="Hands holding a pair of Snap Spectacles" loading="lazy"><figcaption>Snap Spectacles.</figcaption></figure>
+    </div>
+    <p class="label swipe">Swipe for more →</p>
+  </section>
+
+  <section class="together" aria-labelledby="tog">
+    <h2 id="tog">Together</h2>
+    <p>Marching Band is a Connected Lens. Up to three headsets join one session and walk the same road. Whoever reaches an arch moves the song on for everyone, and the band’s drum, guitar and trumpet appear on your partners.</p>
+    <p>Playing alone, a partner walks your path a couple of metres behind you, carrying the instruments.</p>
+  </section>
+
+  <footer class="billing">
+    <div class="rule"></div>
+    <b>Calvin · Hanming · YongWoo</b>
+    <span>Film by Hoon</span>
+    <span class="when">RCA × Snap exhibition · RCA Battersea<br>Private view Fri 25 Sept 17:00–19:00 · Open Sat 26 Sept 10:00–15:00</span>
+    <span>Made in Lens Studio for Snap Spectacles</span>
+  </footer>
+</div>
+</body>
+</html>
